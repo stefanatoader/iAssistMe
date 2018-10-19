@@ -1,8 +1,8 @@
-## SwarmPuffProject
+## iAssistMe
 ### TAIP MSSI 2018-2019
 
 
-**Project Name**: *SwarmPuff Project*
+**Project Name**: *iAssistMe*
 
 **Members**:
    - Cristina-Georgiana Calancea
@@ -13,8 +13,8 @@
 
 **Coordinator**: Lenuta Alboaie (adria@info.uaic.ro)
 
-**Trello Board**: https://trello.com/b/BMdkR61A/swarmpuffproject
+**Trello Board**: https://trello.com/b/BMdkR61A/iassistme
 
-**Github Repository**: https://github.com/gcalancea/SwarmPuffProject
+**Github Repository**: https://github.com/gcalancea/iAssistMe
 
 **State of the Art**: https://docs.google.com/document/d/1VTPiyVi9g95XT6oV9l_X99Ez6trOsB-c_LLiyhcSliU/edit?usp=sharing
