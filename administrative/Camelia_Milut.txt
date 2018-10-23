@@ -1,0 +1,7 @@
+For the second and third laboratory I have contributed with the following aspects:
+- State of The Art (2nd lab) - first version before changing the project; writing about Important names in Swarm ESBs;
+- State of the Art (3rd lab) - second version for the current project named iAssistMe, where I have written about other important descoveries and reserach activities in the domain,
+describing one similar research project, and two other research projects, designed for visually impared people and writing a short description about our project.
+- Designed a use-case diagram, describing a user command and it's flow in the android application;
+- Designed a class diagram for the SpeechToText/TextToSpeech Mechanism and how it will be implemented in our project, also adding the SignIn component, that will be implemented
+using Google Firebase Auth;
