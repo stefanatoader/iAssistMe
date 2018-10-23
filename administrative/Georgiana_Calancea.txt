@@ -1,0 +1,9 @@
+For the second and third laboratory I have contributed with the following aspects:
+- State of The Art (2nd lab) - first version before changing the project; writing about Swarm ESB, data confidentiality, user privacy and alternate
+resources; also added useful documentation, resources and tools;
+- State of the Art (3rd lab) - second version for the current project named iAssistMe, where I have written the introduction in this field,
+the articles and books published on this topic so far and the links to useful resources, tools and documentation that will help us develop
+the project (Android, RabbitMq, Google Cloud Apis for Android, Google Cloud Agents, Firebase Login etc.);
+- Designed a collaboration diagram for all components of the project, where it shows how they interact in order to fulfill a user's request;
+- Designed a class diagram for the RabbitMq Pub/Sub Mechanism and how it will be implemented in our project;
+It uses two design patterns: Factory and Singleton
