@@ -1,0 +1,5 @@
+For the second and third laboratory I have contributed with the following aspects:
+- State of The Art (2nd lab) - first version before changing the project; writing about related articles and books;
+- State of the Art (3rd lab) - second version for the current project named iAssistMe, where I've done some research about important names in the field and 
+research teams
+- Designed a sequence diagram, that shows how a request from the user is handled, by using a keyword extraction API and by adjusting the response based on the user's profile.
