@@ -12,6 +12,8 @@ The main purpose of this type of arhitecture is to achieve separation of concern
 
 The application must **take the input** of the user with visual impariment and respond **accurately** to the request in an **user friendly** manner.
 
+![prorotype](../diagrams/prototype-flow.png)
+
 ## User Slice
 
 ## User Slice Requirements Identification
