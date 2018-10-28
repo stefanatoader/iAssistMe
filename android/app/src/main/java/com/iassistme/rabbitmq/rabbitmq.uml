@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.iassistme.rabbitmq</OriginalElement>
+  <nodes>
+    <node x="0.0" y="153.0">com.iassistme.rabbitmq.AmqpConnectionFactory</node>
+    <node x="195.0" y="227.0">com.iassistme.rabbitmq.Subscriber</node>
+    <node x="0.0" y="79.0">com.iassistme.rabbitmq.OutgoingConnection</node>
+    <node x="0.0" y="301.0">com.iassistme.rabbitmq.Publisher</node>
+    <node x="119.0" y="0.0">com.iassistme.rabbitmq.ConnectionInt</node>
+    <node x="0.0" y="227.0">com.iassistme.rabbitmq.RabbitConsumer</node>
+    <node x="197.0" y="79.0">com.iassistme.rabbitmq.IncomingConnection</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.iassistme.rabbitmq.OutgoingConnection" target="com.iassistme.rabbitmq.ConnectionInt">
+      <point x="0.0" y="-14.5" />
+      <point x="88.5" y="54.0" />
+      <point x="152.75" y="54.0" />
+      <point x="-33.75" y="14.5" />
+    </edge>
+    <edge source="com.iassistme.rabbitmq.IncomingConnection" target="com.iassistme.rabbitmq.ConnectionInt">
+      <point x="0.0" y="-14.5" />
+      <point x="284.5" y="54.0" />
+      <point x="220.25" y="54.0" />
+      <point x="33.75" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="216.0" y="173.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
