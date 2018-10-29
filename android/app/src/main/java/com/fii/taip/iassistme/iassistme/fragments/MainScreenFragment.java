@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fii.taip.iassistme.iassistme.R;
+import com.iassistme.rabbitmq.Publisher;
+import com.iassistme.rabbitmq.Subscriber;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -27,7 +30,7 @@ public class MainScreenFragment extends Fragment {
     public TextView txtSpeechInput;
     private Button btnSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-
+    public Publisher publisher = new Publisher();
 
     //private OnFragmentInteractionListener mListener;
 
@@ -83,6 +86,8 @@ public class MainScreenFragment extends Fragment {
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+                    publisher.publishMessage(result.get(0));
                     txtSpeechInput.setText(result.get(0));
                 }
                 break;
@@ -94,6 +99,7 @@ public class MainScreenFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        publisher.getPublishThread().interrupt();
        // mListener = null;
     }
 
