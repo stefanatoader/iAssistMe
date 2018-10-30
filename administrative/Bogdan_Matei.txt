@@ -1,7 +1,15 @@
-Up until now I have contributed with the following:
+For the second and third labs:
 - RISK-ASSESMENT - describing the application requirements, the components of the application,
 how it satisfies the requirements, the flow and the risk on each component
 - Designed model diagram of prototype components of the application
 - Designed model diagram for the smart agents cluster
 - Designed collaboration diagram for the transport slice of the project, where it shows how the user requirement
 traverses in order to reach the smart agents
+
+For the fourth lab:
+- implement LeadAgent design
+    -> Design Patterns implemented: 
+        - Observable for triggering incoming messages that are subscribed from the first RabbitMQ
+        - Singelton for the RabbitMQ connection
+        - Factory for forwarding the request and applying adjustment functions if needed
+    -> overall flow of the agent using async module and implemented design patterns
