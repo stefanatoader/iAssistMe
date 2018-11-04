@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fii.taip.iassistme.R;
+import com.fii.taip.iassistme.rabbitmq.Publisher;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -29,6 +30,7 @@ public class SpeechToTextFragment extends Fragment {
     public TextView txtSpeechInput;
     private ImageButton btnSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    public Publisher publisher;
 
     //private OnFragmentInteractionListener mListener;
 
@@ -49,7 +51,6 @@ public class SpeechToTextFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_speech_to_text, container, false);
         txtSpeechInput = (TextView) view.findViewById(R.id.txtSpeechInput);
         btnSpeak = (ImageButton) view.findViewById(R.id.btnSpeak);
-
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -57,6 +58,7 @@ public class SpeechToTextFragment extends Fragment {
                 promptSpeechInput();
             }
         });
+        publisher = new Publisher();
         return view;
     }
 
@@ -84,7 +86,7 @@ public class SpeechToTextFragment extends Fragment {
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
+                    publisher.publishMessage(result.get(0));
                     txtSpeechInput.setText(result.get(0));
                 }
                 break;
@@ -96,6 +98,7 @@ public class SpeechToTextFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        publisher.getPublishThread().interrupt();
         // mListener = null;
     }
 
