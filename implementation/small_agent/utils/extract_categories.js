@@ -19,6 +19,8 @@ exports.extract_categories = (command, cleverbot_response, cb) => {
         .then(results => {
             if(results){
                 const classification = results[0];
+                if(!classification)
+                    return cb(null, cleverbot_response, []);
                 return cb(null, cleverbot_response, classification.categories);
             } else {
                 return cb(null, cleverbot_response, []);
