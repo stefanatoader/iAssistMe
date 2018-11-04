@@ -1,5 +1,4 @@
 package com.fii.taip.iassistme.rabbitmq;
-
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.net.URISyntaxException;
@@ -16,19 +15,20 @@ class IncomingConnection implements ConnectionInt {
     private BlockingDeque<String> queue = new LinkedBlockingDeque<>();
 
 
-    private IncomingConnection() {
+
+    private IncomingConnection(){
         AmqpConnectionFactory f = new AmqpConnectionFactory();
         ConnectionInt c = f.getConnectionType("INCOMING");
         c.setupConnection();
     }
 
 
-    public static IncomingConnection getInstance() {
+    public static IncomingConnection getInstance(){
         return instance;
     }
 
 
-    public void setupConnection() {
+    public void setupConnection(){
         try {
             factory.setAutomaticRecoveryEnabled(false);
             factory.setUri(rabbitMqHost);
@@ -38,11 +38,11 @@ class IncomingConnection implements ConnectionInt {
     }
 
 
-    public ConnectionFactory getConnectionFactory() {
+    public ConnectionFactory getConnectionFactory(){
         return factory;
     }
 
-    public BlockingDeque<String> getQueue() {
+    public BlockingDeque<String> getQueue(){
         return queue;
     }
 }

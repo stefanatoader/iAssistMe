@@ -1,4 +1,4 @@
-package com.fii.taip.iassistme;
+package com.fii.taip.iassistme.screens;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.fii.taip.iassistme.R;
 import com.fii.taip.iassistme.fragments.AuthFragment;
 import com.fii.taip.iassistme.fragments.SpeechToTextFragment;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         mFrameLayout = (FrameLayout) findViewById(R.id.frame_container);
         if (savedInstanceState == null) {
             mSpeechToTextFragment = new SpeechToTextFragment();
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
 
-        setContentView(R.layout.activity_main);
     }
 
     @Override

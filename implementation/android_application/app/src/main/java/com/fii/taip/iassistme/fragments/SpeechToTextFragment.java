@@ -99,7 +99,6 @@ public class SpeechToTextFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         publisher.getPublishThread().interrupt();
-        // mListener = null;
     }
 
     public interface OnFragmentInteractionListener {
