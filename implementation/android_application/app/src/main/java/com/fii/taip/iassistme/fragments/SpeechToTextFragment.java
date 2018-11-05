@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.speech.RecognizerIntent;
 import android.util.Log;
@@ -95,6 +96,12 @@ public class SpeechToTextFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        startASycnc("mesaj");
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
        // publisher.getPublishThread().interrupt();
@@ -111,7 +118,7 @@ public class SpeechToTextFragment extends Fragment {
 
     public class StartAsyncTask extends AsyncTask<String, String, String> {
 
-        Publisher publisher;
+        Publisher publisher = new Publisher();
         private String resp;
 
         @Override

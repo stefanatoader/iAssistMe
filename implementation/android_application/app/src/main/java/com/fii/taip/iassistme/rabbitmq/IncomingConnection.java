@@ -22,6 +22,8 @@ class IncomingConnection implements ConnectionInt {
 
 
     public static IncomingConnection getInstance() {
+        if(instance == null)
+            instance = new IncomingConnection();
         return instance;
     }
 
