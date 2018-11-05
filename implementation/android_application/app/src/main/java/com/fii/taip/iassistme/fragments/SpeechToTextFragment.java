@@ -1,16 +1,16 @@
 package com.fii.taip.iassistme.fragments;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.speech.RecognizerIntent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +19,7 @@ import com.fii.taip.iassistme.R;
 import com.fii.taip.iassistme.rabbitmq.Publisher;
 
 import java.util.ArrayList;
-import java.util.Locale;
-
 import static android.app.Activity.RESULT_OK;
-import static android.support.v4.content.PermissionChecker.checkPermission;
 
 
 public class SpeechToTextFragment extends Fragment {
@@ -30,7 +27,7 @@ public class SpeechToTextFragment extends Fragment {
     public TextView txtSpeechInput;
     private ImageButton btnSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-    public Publisher publisher;
+    //public Publisher publisher;
 
     //private OnFragmentInteractionListener mListener;
 
@@ -58,7 +55,7 @@ public class SpeechToTextFragment extends Fragment {
                 promptSpeechInput();
             }
         });
-        publisher = new Publisher();
+        //publisher = new Publisher();
         return view;
     }
 
@@ -86,8 +83,10 @@ public class SpeechToTextFragment extends Fragment {
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    publisher.publishMessage(result.get(0));
-                    txtSpeechInput.setText(result.get(0));
+                    //publisher.publishMessage(result.get(0));
+                    String response = result.get(0);
+                    txtSpeechInput.setText(response);
+                    startASycnc(response);
                 }
                 break;
             }
@@ -98,11 +97,36 @@ public class SpeechToTextFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        publisher.getPublishThread().interrupt();
+       // publisher.getPublishThread().interrupt();
     }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void startASycnc(String message) {
+        new StartAsyncTask().execute(message);
+    }
+
+    public class StartAsyncTask extends AsyncTask<String, String, String> {
+
+        Publisher publisher;
+        private String resp;
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                publisher.publishMessage(strings[0]);
+                Log.e("startAsyncTask", "start");
+                resp = "Published message";
+                Log.e("Raspuns_Camelia", resp);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
     }
 }
