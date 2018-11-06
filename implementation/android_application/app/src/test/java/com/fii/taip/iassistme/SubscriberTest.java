@@ -17,22 +17,19 @@ import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class SubscriberTest {
     ArgumentCaptor<Runnable> runnables = ArgumentCaptor.forClass(Runnable.class);
-/*
     @InjectMocks
     private Subscriber subscriber;
 
     @Test
     public void shouldDoSomthingAsynchrone() throws Exception {
 
-        // create a mock for Thread.class
-     /*   Thread mock = Mockito.mock(Thread.class);
+       Thread mock = Mockito.mock(Thread.class);
 
         subscriber.subscribe(new Handler());
 
         runnables.getValue().run();
 
-
         verify(subscriber, times(1)).getSubscribeThread();
     }
-*/
+
 }

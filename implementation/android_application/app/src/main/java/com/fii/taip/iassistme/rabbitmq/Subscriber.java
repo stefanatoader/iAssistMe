@@ -18,7 +18,7 @@ public class Subscriber {
         return subscribeThread;
     }
 
-    void subscribe(final Handler handler)
+    public void subscribe(final Handler handler)
     {
         subscribeThread = new Thread(new Runnable() {
             @Override
