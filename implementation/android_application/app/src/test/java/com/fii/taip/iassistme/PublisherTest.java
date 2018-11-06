@@ -1,6 +1,8 @@
-package com.fii.taip.iassistme.rabbitmq;
+package com.fii.taip.iassistme;
 
 import android.os.Handler;
+
+import com.fii.taip.iassistme.rabbitmq.Publisher;
 
 import org.junit.After;
 import org.junit.Before;
