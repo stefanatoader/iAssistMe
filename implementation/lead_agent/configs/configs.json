@@ -1,5 +1,4 @@
 {
-  "sub_rabbit": "",
-  "pub_rabbit": "",
-  "load_balancer": ""
+  "rabbit": "amqp://localhost",
+  "agent_farm": "https://us-central1-iassistme-backend-component.cloudfunctions.net/test-function"
 }
