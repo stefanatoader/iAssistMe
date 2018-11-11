@@ -3,7 +3,6 @@ package com.fii.taip.iassistme.fragments;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fii.taip.iassistme.R;
-import com.fii.taip.iassistme.rabbitmq.Publisher;
+
+import org.android10.gintonic.annotation.DebugTrace;
 
 import java.util.ArrayList;
 import static android.app.Activity.RESULT_OK;
@@ -50,7 +50,7 @@ public class SpeechToTextFragment extends Fragment {
         txtSpeechInput = (TextView) view.findViewById(R.id.txtSpeechInput);
         btnSpeak = (ImageButton) view.findViewById(R.id.btnSpeak);
         btnSpeak.setOnClickListener(new View.OnClickListener() {
-
+            @DebugTrace
             @Override
             public void onClick(View v) {
                 promptSpeechInput();
