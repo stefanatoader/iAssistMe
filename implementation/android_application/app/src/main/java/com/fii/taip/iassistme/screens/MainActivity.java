@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import com.fii.taip.iassistme.R;
 import com.fii.taip.iassistme.fragments.AuthFragment;
 import com.fii.taip.iassistme.fragments.SpeechToTextFragment;
+import com.fii.taip.iassistme.utils.DebugTrace;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        testAnnotatedMethod();
+    }
+
+    @DebugTrace
+    private void testAnnotatedMethod() {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 

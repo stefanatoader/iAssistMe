@@ -1,11 +1,11 @@
 package com.fii.taip.iassistme.rabbitmq;
 import android.os.Handler;
 import android.util.Log;
-
+/*
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-
+*/
 public class Subscriber {
 
     private Thread subscribeThread;
@@ -20,7 +20,7 @@ public class Subscriber {
 
     public void subscribe(final Handler handler)
     {
-        subscribeThread = new Thread(new Runnable() {
+       /* subscribeThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 while(true) {
@@ -43,6 +43,6 @@ public class Subscriber {
                 }
             }
         });
-        subscribeThread.start();
+        subscribeThread.start();*/
     }
 }

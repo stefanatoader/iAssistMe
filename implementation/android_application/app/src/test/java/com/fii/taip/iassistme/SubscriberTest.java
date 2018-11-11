@@ -16,7 +16,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class SubscriberTest {
-    ArgumentCaptor<Runnable> runnables = ArgumentCaptor.forClass(Runnable.class);
+   /* ArgumentCaptor<Runnable> runnables = ArgumentCaptor.forClass(Runnable.class);
     @InjectMocks
     private Subscriber subscriber;
 
@@ -30,6 +30,6 @@ public class SubscriberTest {
         runnables.getValue().run();
 
         verify(subscriber, times(1)).getSubscribeThread();
-    }
+    }*/
 
 }

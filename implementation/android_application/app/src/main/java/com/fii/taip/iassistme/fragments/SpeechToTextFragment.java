@@ -87,7 +87,8 @@ public class SpeechToTextFragment extends Fragment {
                     //publisher.publishMessage(result.get(0));
                     String response = result.get(0);
                     txtSpeechInput.setText(response);
-                    startASycnc(response);
+                    Log.e("CAAAAAMIIII", response);
+                    //startASycnc(response);
                 }
                 break;
             }
@@ -98,7 +99,7 @@ public class SpeechToTextFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        startASycnc("mesaj");
+       // startASycnc("mesaj");
     }
 
     @Override
@@ -112,10 +113,11 @@ public class SpeechToTextFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void startASycnc(String message) {
-        new StartAsyncTask().execute(message);
-    }
+    //public void startASycnc(String message) {
+        //new StartAsyncTask().execute(message);
+    //}
 
+    /*
     public class StartAsyncTask extends AsyncTask<String, String, String> {
 
         Publisher publisher = new Publisher();
@@ -135,5 +137,5 @@ public class SpeechToTextFragment extends Fragment {
             }
             return resp;
         }
-    }
+    }*/
 }
