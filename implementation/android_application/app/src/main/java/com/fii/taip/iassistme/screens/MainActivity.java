@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import com.fii.taip.iassistme.R;
 import com.fii.taip.iassistme.fragments.SpeechToTextFragment;
 
-
+import org.android10.gintonic.annotation.DebugTrace;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +36,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    @DebugTrace
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
     }
+
 }
 

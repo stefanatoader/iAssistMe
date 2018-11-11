@@ -1,29 +1,30 @@
 package com.fii.taip.iassistme.rabbitmq;
 
-import com.rabbitmq.client.ConnectionFactory;
+//import com.rabbitmq.client.ConnectionFactory;
 
 import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 
-class OutgoingConnection implements ConnectionInt {
+class OutgoingConnection {
+        //implements ConnectionInt {
 
     private static OutgoingConnection instance = new OutgoingConnection();
-    private ConnectionFactory factory = new ConnectionFactory();
+   // private ConnectionFactory factory = new ConnectionFactory();
     private String rabbitMqHost = "10.23.254.162";
 
 
     private OutgoingConnection() {
         AmqpConnectionFactory f = new AmqpConnectionFactory();
-        ConnectionInt c = f.getConnectionType("OUTGOING");
-        c.setupConnection();
+       // ConnectionInt c = f.getConnectionType("OUTGOING");
+        //c.setupConnection();
     }
 
     public static OutgoingConnection getInstance() {
         return instance;
     }
 
-    public void setupConnection() {
+    /*public void setupConnection() {
 
         factory.setAutomaticRecoveryEnabled(false);
         factory.setUsername("rabbit");
@@ -35,5 +36,5 @@ class OutgoingConnection implements ConnectionInt {
 
     public ConnectionFactory getConnectionFactory() {
         return factory;
-    }
+    }*/
 }

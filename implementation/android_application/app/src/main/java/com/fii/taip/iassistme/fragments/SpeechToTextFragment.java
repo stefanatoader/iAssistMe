@@ -3,7 +3,6 @@ package com.fii.taip.iassistme.fragments;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fii.taip.iassistme.R;
-import com.fii.taip.iassistme.rabbitmq.Publisher;
+
+import org.android10.gintonic.annotation.DebugTrace;
 
 import java.util.ArrayList;
 import static android.app.Activity.RESULT_OK;
@@ -50,7 +50,6 @@ public class SpeechToTextFragment extends Fragment {
         txtSpeechInput = (TextView) view.findViewById(R.id.txtSpeechInput);
         btnSpeak = (ImageButton) view.findViewById(R.id.btnSpeak);
         btnSpeak.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 promptSpeechInput();
@@ -60,6 +59,7 @@ public class SpeechToTextFragment extends Fragment {
         return view;
     }
 
+    @DebugTrace
     public void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -87,7 +87,8 @@ public class SpeechToTextFragment extends Fragment {
                     //publisher.publishMessage(result.get(0));
                     String response = result.get(0);
                     txtSpeechInput.setText(response);
-                    startASycnc(response);
+                    Log.e("CAAAAAMIIII", response);
+                    //startASycnc(response);
                 }
                 break;
             }
@@ -98,7 +99,7 @@ public class SpeechToTextFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        startASycnc("mesaj");
+       // startASycnc("mesaj");
     }
 
     @Override
@@ -112,10 +113,11 @@ public class SpeechToTextFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void startASycnc(String message) {
-        new StartAsyncTask().execute(message);
-    }
+    //public void startASycnc(String message) {
+        //new StartAsyncTask().execute(message);
+    //}
 
+    /*
     public class StartAsyncTask extends AsyncTask<String, String, String> {
 
 //        Publisher publisher = new Publisher();
@@ -135,5 +137,5 @@ public class SpeechToTextFragment extends Fragment {
             }
             return resp;
         }
-    }
+    }*/
 }
