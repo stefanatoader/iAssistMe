@@ -8,15 +8,14 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.fii.taip.iassistme.R;
-import com.fii.taip.iassistme.fragments.AuthFragment;
 import com.fii.taip.iassistme.fragments.SpeechToTextFragment;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
     private SpeechToTextFragment mSpeechToTextFragment;
-    private AuthFragment mAuthFragement;
     private FrameLayout mFrameLayout;
-    private final int REQ_CODE_SPEECH_INPUT = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFrameLayout = (FrameLayout) findViewById(R.id.frame_container);
         if (savedInstanceState == null) {
-            mSpeechToTextFragment = new SpeechToTextFragment();
-            //mAuthFragement = new AuthFragment();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
 
+            mSpeechToTextFragment = new SpeechToTextFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
             FragmentManager manager = getSupportFragmentManager();
             android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace( R.id.frame_container, mSpeechToTextFragment);
+            transaction.replace(R.id.frame_container, mSpeechToTextFragment);
             transaction.commit();
+
         }
 
     }

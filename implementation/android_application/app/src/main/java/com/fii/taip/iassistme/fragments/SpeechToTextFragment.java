@@ -118,13 +118,13 @@ public class SpeechToTextFragment extends Fragment {
 
     public class StartAsyncTask extends AsyncTask<String, String, String> {
 
-        Publisher publisher = new Publisher();
+//        Publisher publisher = new Publisher();
         private String resp;
 
         @Override
         protected String doInBackground(String... strings) {
             try {
-                publisher.publishMessage(strings[0]);
+//                publisher.publishMessage(strings[0]);
                 Log.e("startAsyncTask", "start");
                 resp = "Published message";
                 Log.e("Raspuns_Camelia", resp);
