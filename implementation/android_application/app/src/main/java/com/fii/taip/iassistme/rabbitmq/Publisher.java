@@ -12,29 +12,11 @@ public class Publisher {
     private ConnectionFactory factory;
     private String message;
 
-    public Publisher(){
-        startPublishToAMQP();
-    }
-
-    public void publishMessage(String message) {
-        try {
-            Log.d("","[q] " + message);
-            IncomingConnection.getInstance().getQueue().putLast(message);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Thread getPublishThread() {
-        return publishThread;
-    }
-
-    private void startPublishToAMQP()
-    {
+    public Publisher() {
         publishThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while(true) {
+                while (true) {
                     try {
                         factory = IncomingConnection.getInstance().getConnectionFactory();
                         Connection connection = factory.newConnection();
@@ -44,12 +26,12 @@ public class Publisher {
                         while (true) {
 
                             message = IncomingConnection.getInstance().getQueue().takeFirst();
-                            try{
+                            try {
                                 ch.basicPublish("amq.fanout", "incoming_request", null, message.getBytes());
                                 Log.d("", "[s] " + message);
                                 ch.waitForConfirmsOrDie();
-                            } catch (Exception e){
-                                Log.d("","[f] " + message);
+                            } catch (Exception e) {
+                                Log.d("", "[f] " + message);
                                 IncomingConnection.getInstance().getQueue().putFirst(message);
                                 throw e;
                             }
@@ -68,5 +50,22 @@ public class Publisher {
             }
         });
         publishThread.start();
+    }
+
+    public void publishMessage(String message) {
+        try {
+            Log.d("", "[q] " + message);
+            IncomingConnection.getInstance().getQueue().putLast(message);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Thread getPublishThread() {
+        return publishThread;
+    }
+
+    private void startPublishToAMQP() {
+
     }
 }

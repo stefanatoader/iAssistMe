@@ -10,7 +10,7 @@ class IncomingConnection implements ConnectionInt {
 
     private static IncomingConnection instance = new IncomingConnection();
     private ConnectionFactory factory = new ConnectionFactory();
-    private String rabbitMqHost = "10.23.254.162";
+    private String rabbitMqHost = "localhost";
     private BlockingDeque<String> queue = new LinkedBlockingDeque<>();
 
 
@@ -35,7 +35,7 @@ class IncomingConnection implements ConnectionInt {
         factory.setPassword("F5pPaHvaSdkV");
         factory.setVirtualHost("/");
         factory.setHost(rabbitMqHost);
-        factory.setPort(5672);
+        factory.setPort(15672);
 
     }
 
