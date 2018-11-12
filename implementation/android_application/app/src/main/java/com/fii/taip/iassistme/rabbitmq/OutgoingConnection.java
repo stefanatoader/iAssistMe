@@ -1,40 +1,43 @@
 package com.fii.taip.iassistme.rabbitmq;
 
-//import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.ConnectionFactory;
 
 import java.net.URISyntaxException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 
-class OutgoingConnection {
-        //implements ConnectionInt {
 
-    private static OutgoingConnection instance = new OutgoingConnection();
-   // private ConnectionFactory factory = new ConnectionFactory();
-    private String rabbitMqHost = "10.23.254.162";
+class OutgoingConnection implements ConnectionInt {
+
+    private static OutgoingConnection instance;
+    private ConnectionFactory factory = new ConnectionFactory();
 
 
     private OutgoingConnection() {
-        AmqpConnectionFactory f = new AmqpConnectionFactory();
-       // ConnectionInt c = f.getConnectionType("OUTGOING");
-        //c.setupConnection();
+        setupConnection();
     }
 
     public static OutgoingConnection getInstance() {
+        if (instance == null)
+            instance = new OutgoingConnection();
         return instance;
     }
 
-    /*public void setupConnection() {
+    public void setupConnection() {
 
-        factory.setAutomaticRecoveryEnabled(false);
-        factory.setUsername("rabbit");
-        factory.setPassword("F5pPaHvaSdkV");
-        factory.setVirtualHost("/");
-        factory.setHost(rabbitMqHost);
-        factory.setPort(5672);
+        try {
+            factory.setUri("amqp://guest:guest@10.0.2.2:5672/%2f");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public ConnectionFactory getConnectionFactory() {
         return factory;
-    }*/
+    }
 }

@@ -5,24 +5,23 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-//import com.rabbitmq.client.AMQP;
-//import com.rabbitmq.client.Channel;
-//import com.rabbitmq.client.DefaultConsumer;
-//import com.rabbitmq.client.Envelope;
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 
 import java.io.IOException;
 
-public class RabbitConsumer {
-        //extends DefaultConsumer {
+public class RabbitConsumer extends DefaultConsumer {
 
-    //private final Handler handler;
+    private final Handler handler;
 
-    //RabbitConsumer(Channel channel, final Handler h) {
-     //   super(channel);
-      //  handler = h;
-    //}
+    RabbitConsumer(Channel channel, final Handler h) {
+       super(channel);
+        handler = h;
+    }
 
-   /* @Override
+   @Override
     public void handleDelivery(String consumerTag, Envelope envelope,
                                AMQP.BasicProperties properties, byte[] body)
             throws IOException {
@@ -33,5 +32,5 @@ public class RabbitConsumer {
         bundle.putString("msg", message);
         msg.setData(bundle);
         handler.sendMessage(msg);
-    }*/
+    }
 }

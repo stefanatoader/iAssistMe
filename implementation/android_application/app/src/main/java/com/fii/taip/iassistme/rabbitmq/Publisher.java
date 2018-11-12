@@ -2,19 +2,19 @@ package com.fii.taip.iassistme.rabbitmq;
 
 import android.util.Log;
 
-//import com.rabbitmq.client.Channel;
-//import com.rabbitmq.client.Connection;
-//import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 public class Publisher {
 
     private Thread publishThread;
-    //private ConnectionFactory factory;
+    private ConnectionFactory factory;
     private String message;
 
-    //public Publisher(){
-      //  startPublishToAMQP();
-    //}
+    public Publisher(){
+        startPublishToAMQP();
+    }
 
     public void publishMessage(String message) {
         try {
@@ -29,7 +29,7 @@ public class Publisher {
         return publishThread;
     }
 
-   /* private void startPublishToAMQP()
+   private void startPublishToAMQP()
     {
         publishThread = new Thread(new Runnable() {
             @Override
@@ -42,10 +42,9 @@ public class Publisher {
                         ch.confirmSelect();
 
                         while (true) {
-
                             message = IncomingConnection.getInstance().getQueue().takeFirst();
                             try{
-                                ch.basicPublish("amq.fanout", "incoming_request", null, message.getBytes());
+                                ch.basicPublish("amq.direct", "incoming_request", null, message.getBytes());
                                 Log.d("", "[s] " + message);
                                 ch.waitForConfirmsOrDie();
                             } catch (Exception e){
@@ -68,5 +67,5 @@ public class Publisher {
             }
         });
         publishThread.start();
-    }*/
+    }
 }
